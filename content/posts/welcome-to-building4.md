@@ -10,7 +10,7 @@ I've been thinking about starting my own blog for the looongest time, but I "nev
 
 And finally here I am writing this first ever post on this blog with VS Code in WSL. Not that I have written many blog posts earlier anywhere else. Some, but not much. And hopefully this post won't be the last post :grin:.
 
-What should you expect from this blog? Well it's hard to say exactly, but I'm suspecting it will mostly have something to do with Azure, DevOps, Kubernetes, Infrastructure as Code or something along those lines. Last year I decided to dedicate year 2020 for studying more about Azure DevOps and Kubernetes. And that's something I have done, but I know myself too well and I know that I will spend too much time on something totally different. And to be honest, I already have. Anyway, I'll try write something also from those trips to other rabbitholes. 
+What should you expect from this blog? Well it's hard to say exactly, but I'm suspecting it will mostly have something to do with Azure, DevOps, Kubernetes, Infrastructure as Code or something along those lines. Last year I decided to dedicate year 2020 for studying more about Azure DevOps and Kubernetes. And that's something I have already started and will continue doing. But I know myself too well and I know that I will spend too much time on something totally different. And to be honest, I already have. Anyway, I'll try write something also from those trips to other rabbitholes. 
 
 Only time will tell what will how this blog will evolve. I have loads of ideas, but I need to work with them for a while to get my head straight before starting to write. I might need to kick myself to not thinking too long and to just get started with writing. 
 
