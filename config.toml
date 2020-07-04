@@ -1,4 +1,4 @@
-baseURL = "https://building4.cloud"
+baseURL = "https://building4.cloud/"
 languageCode = "en-us"
 title = "building[4].cloud"
 theme = "hugo-kiera"
@@ -14,6 +14,7 @@ paginate = 10
   tagline = "Beam me up, Scotty."
   description = "Beam me up, Scotty."
   show_reading_time = true
+  favicon = "favicon.ico"
 
 [author]
     name = "Tommi Marjomaa"
