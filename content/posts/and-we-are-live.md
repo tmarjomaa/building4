@@ -4,7 +4,7 @@ title: "And We're Live and Kicking in Azure Static Web Apps"
 linktitle: "And We're Live and Kicking in Azure Static Web Apps"
 date: 2020-07-04T18:20:43+03:00
 tags: ["azure", "hugo", "cloudflare", "staticwebapps"]
-draft: true
+draft: false
 ---
 Actually I think that the title should include one more word, **finally**. Anyways, the site is live! And I'll briefly explain how we got here.
 
