@@ -20,6 +20,6 @@ My current job focuses around consulting, administering and architecting Azure s
 
 I'll keep this first post short. One more time, welcome to building[4].cloud. Thanks for being here and hopefully you'll find something usefull from the upcoming future posts.
 
-In case you want to contact me, feel free to reach my through [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [twitter](https://twitter.com/tommimarjomaa).
+In case you want to contact me, feel free to reach my through [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [Twitter](https://twitter.com/tommimarjomaa).
 
 Until next time, take care.
