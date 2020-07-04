@@ -1,7 +1,7 @@
 ---
 author: "Tommi Marjomaa"
-title: "And We're Live - Running website in Azure Static Web Apps"
-linktitle: "And We're Live - Running website in Azure Static Web Apps"
+title: "And We're Live and Kicking in Azure Static Web Apps"
+linktitle: "And We're Live and Kicking in Azure Static Web Apps"
 date: 2020-07-04T18:20:43+03:00
 tags: ["azure", "hugo", "cloudflare", "staticwebapps"]
 draft: true

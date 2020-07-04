@@ -15,6 +15,7 @@ paginate = 10
   description = "Beam me up, Scotty."
   show_reading_time = true
   favicon = "https://building4.cloud/favicon.ico"
+  customCSS = ["css/building4css_v1.css"]
 
 [author]
     name = "Tommi Marjomaa"
