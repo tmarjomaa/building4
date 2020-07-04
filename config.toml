@@ -14,7 +14,7 @@ paginate = 10
   tagline = "Beam me up, Scotty."
   description = "Beam me up, Scotty."
   show_reading_time = true
-  favicon = "favicon.ico"
+  favicon = "https://building4.cloud/favicon.ico"
 
 [author]
     name = "Tommi Marjomaa"
