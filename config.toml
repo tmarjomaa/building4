@@ -19,6 +19,7 @@ paginate = 10
     name = "Tommi Marjomaa"
     linkedin = "tommimarjomaa"
     twitter = "tommimarjomaa"
+    github = "tmarjomaa"
 
   [[menu.main]]
     identifier = "tags"
