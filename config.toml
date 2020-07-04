@@ -1,0 +1,5 @@
+baseURL = "https://building4.cloud"
+languageCode = "en-us"
+title = "building[4].cloud"
+theme=hugo-kiera
+copyright = "Copyright &copy; 2020 - Tommi Marjomaa"
