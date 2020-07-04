@@ -3,3 +3,25 @@ languageCode = "en-us"
 title = "building[4].cloud"
 theme = "hugo-kiera"
 copyright = "Copyright &copy; 2020 - Tommi Marjomaa"
+
+meta = "false"
+summaryLength = 30
+enableEmoji = true
+pygmentsCodeFences = true
+paginate = 10
+
+[params]
+  tagline = "Beam me up, Scotty."
+  description = "Beam me up, Scotty."
+  show_reading_time = true
+
+[author]
+    name = "Tommi Marjomaa"
+    linkedin = "tommimarjomaa"
+    twitter = "tommimarjomaa"
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags"
+    weight = 1
