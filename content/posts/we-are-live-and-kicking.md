@@ -6,9 +6,9 @@ date: 2020-07-04T18:20:43+03:00
 tags: ["azure", "hugo", "cloudflare", "staticwebapps"]
 draft: false
 ---
-Actually I think that the title should include one more word, **finally**. Anyways, the site is live! And I'll briefly explain how we got here.
+Actually I think that the title should include one more word, **finally**. Anyways, the site is live and kicking! And in this post I'll briefly explain how we got here.
 
-Some time ago, I started kicking myself to get on with the job to getting this site up and running. I had decided that I would be creating a static web site, so I started to look into my options. Like most of us do when searching for new information, I opened a web browser and started with a web search and then heading into Twitter to find some more.
+Some time ago, I started kicking myself to butt in order to get on with the job in getting this site up and running. I had decided that I would be creating a static web site, so I started to look into my options. Like most of us do when searching for new information, I opened a web browser and started with a web search and then heading into Twitter to find some more.
 
 It seemed that the popular choises were [Gatsby](https://www.gatsbyjs.org/), [Hugo](https://gohugo.io) and [Jekyll](https://jekyllrb.com/). With no particular reasons that I can think of, I decided to go with Hugo. Maybe I chose it because some of the persons I follow in Twitter are using it or maybe I bumped into an article where the recommended product for my use case was Hugo. Anyway, I chose to start with Hugo. Let's move on.
 
