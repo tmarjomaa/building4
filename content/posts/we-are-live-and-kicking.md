@@ -2,7 +2,7 @@
 author: "Tommi Marjomaa"
 title: "We're Live and Kicking in Azure Static Web Apps"
 linktitle: "We're Live and Kicking in Azure Static Web Apps"
-date: 2020-07-04T18:20:43+03:00
+date: "2020-07-04T18:00:00+03:00"
 tags: ["azure", "hugo", "cloudflare", "staticwebapps"]
 draft: false
 ---

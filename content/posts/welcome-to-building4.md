@@ -2,7 +2,7 @@
 author: "Tommi Marjomaa"
 title: "Welcome to building[4]"
 linktitle: "Welcome to building[4]"
-date: 2020-07-04T12:00:36+03:00
+date: "2020-07-04T12:00:00+03:00"
 tags: ["welcome"]
 draft: false
 ---

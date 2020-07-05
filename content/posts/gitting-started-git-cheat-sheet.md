@@ -2,7 +2,7 @@
 author: "Tommi Marjomaa"
 title: "Gitting started - Git Cheat Sheet"
 linktitle: "Gitting started - Git Cheat Sheet"
-date: 2020-07-05T18:09:01+33:00
+date: "2020-07-05T18:00:00+03:00"
 tags: ["git", "cheatsheet"]
 draft: false
 ---
