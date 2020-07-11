@@ -9,10 +9,11 @@ summaryLength = 30
 enableEmoji = true
 pygmentsCodeFences = true
 paginate = 10
+googleAnalytics = "UA-171616748-1"
 
 [params]
   tagline = "Beam me up, Scotty."
-  description = "Beam me up, Scotty."
+  description = "building[4].cloud is a personal blog site of an ops guy turning into devops guy. Posts will cover tools, tricks and lessons learned on that journey. Stack: Azure, DevOps, Powershell, Kubernetes, Infrastructure as Code."
   show_reading_time = true
   favicon = "https://building4.cloud/favicon.ico"
   customCSS = ["css/building4css_v1.css"]
