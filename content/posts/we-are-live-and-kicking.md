@@ -2,6 +2,7 @@
 author: "Tommi Marjomaa"
 title: "We're Live and Kicking in Azure Static Web Apps"
 linktitle: "We're Live and Kicking in Azure Static Web Apps"
+description: "Building[4].cloud is finally live and kicking in Azure Static Web Apps. This post will briefly explain how we got here. Spoiler alert: Hugo, Azure Static Web Apps, GitHub Actions and Cloudflare are stars of the show."
 date: "2020-07-04T18:00:00+03:00"
 tags: ["azure", "hugo", "cloudflare", "staticwebapps"]
 draft: false

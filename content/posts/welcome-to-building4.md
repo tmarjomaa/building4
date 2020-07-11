@@ -2,6 +2,7 @@
 author: "Tommi Marjomaa"
 title: "Welcome to building[4]"
 linktitle: "Welcome to building[4]"
+description: "Welcome to building[4].cloud. I've been thinking about starting my own blog for the looongest time, but I \"never\" seemed to have time to do it. Yeah, I know, it's just a terrible excuse. But better late than never, right? Thanks for coming."
 date: "2020-07-04T12:00:00+03:00"
 tags: ["welcome"]
 draft: false

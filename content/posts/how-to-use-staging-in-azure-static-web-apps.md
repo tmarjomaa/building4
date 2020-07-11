@@ -65,6 +65,6 @@ After pushing *Merge pull request*, we can go ahead a confirm the merge. Note ho
 
 Afer the pull request is merged, Azure will pull the plug from staging environment and it will be removed.
 
-Want to more or leave a commont, reach out to me on [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [Twitter](https://twitter.com/tommimarjomaa).
+Want to know more or leave a comment? Reach out to me on [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [Twitter](https://twitter.com/tommimarjomaa).
 
 Until next time, take care.

@@ -2,6 +2,7 @@
 author: "Tommi Marjomaa"
 title: "Gitting started - Git Cheat Sheet"
 linktitle: "Gitting started - Git Cheat Sheet"
+description: "I know there are already bunch of Git cheat sheets all around The Internets, but this one is something I have gathered and kept close to me while getting started with git on my (continuing) journey from an ops guy to a devops guy. And if you happened to bump into this page after searching for \"git cheat sheet\", I believe you'll find relevant information for you."
 date: "2020-07-05T18:00:00+03:00"
 tags: ["git", "cheatsheet"]
 draft: false
@@ -13,7 +14,7 @@ If you aren't familiar with [Git](https://git-scm.com/), it is a free and open s
 If you're even slightly concerned about your precious scripts, tools and source codes, you will need to use a source control. By now, most people (both dev and ops) have already acknowledged this, as there a loads of benefits using a source control, like file history, recovery of deleted files, parallel working copies and CI/CD possibilities. And git is all you need to claim those benefits. And remember this:
 > If it's not in a source control, it does not exist.
 
-Enough with the chit chat, let's get on with the cheat sheet. I hope it will save  your time when you just can't remember one of the commands. 
+Enough with the chit chat, let's get on with the cheat sheet. I hope it will save your time when you just can't remember one of the commands. 
 
 ## User config
 
