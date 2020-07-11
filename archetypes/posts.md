@@ -4,6 +4,6 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 linktitle: "{{ replace .TranslationBaseName "-" " " | title }}"
 description: ""
 date: "{{ .Date }}"
-tags: ["",""]
+tags: ["", ""]
 draft: true
 ---
