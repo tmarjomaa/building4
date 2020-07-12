@@ -1,0 +1,17 @@
+a, #text404 {
+    color: #3d7e9a;
+}
+
+#text404, #text404sb, #workedonmymachine {
+    font-family: "Ruda", sans-serif;
+    font-size: 2.4rem;
+}
+
+#text404, #text404sb, #text404other {
+    font-weight: bold;
+}
+
+.centered404 {
+    text-align: center;
+    margin-top: 6rem;
+}
