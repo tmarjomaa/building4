@@ -10,6 +10,7 @@ enableEmoji = true
 pygmentsCodeFences = true
 paginate = 10
 googleAnalytics = "UA-171616748-1"
+enableRobotsTXT = true
 
 [params]
   tagline = "Beam me up, Scotty."
