@@ -5,7 +5,7 @@ linktitle: "Set Up Kubernetes Cluster Playground With Azure Virtual Machines and
 description: "In this post I will set up Kubernetes cluster playground with Azure virtual machines, Azure CLI and some bash scripts."
 date: "2020-08-18T19:00:00+03:00"
 tags: ["azure", "kubernetes", "CLI", "bash"]
-draft: true
+draft: false
 ---
 I’m going to write some blog posts about my Kubernetes adventures, and the first thing I wanted to do, was to set up some scripts to build up a simple Kubernetes environment to play with. I will of course also play around with Azure Kubernetes Service (AKS), but I also want to run some experiments with control plane. This means I need to build my own cluster, as control plane in AKS is provided as a managed Azure service.
 
