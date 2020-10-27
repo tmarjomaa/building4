@@ -1,0 +1,10 @@
+{
+    "name": "temperatures-get",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+      "@azure/cosmos": "^3.9.2"
+    },
+    "devDependencies": {}
+  }
+  
