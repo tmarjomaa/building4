@@ -1,7 +1,7 @@
 {
     "name": "temperatures-get",
     "version": "1.0.0",
-    "description": "",
+    "description": "RuuviTag data from CosmosDB",
     "dependencies": {
       "@azure/cosmos": "^3.9.2"
     },
