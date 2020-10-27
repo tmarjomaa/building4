@@ -1,11 +1,11 @@
-const CosmosClient = require("@azure/cosmos").CosmosClient;
-const config = {
-    databaseId: "outDatabase",
-    containerId: "MyCollection",
-    connectiongString: process.env["cosmos-ruuvi-test_DOCUMENTDB"]
-  };
-
 module.exports = async function (context, req) {
+    const CosmosClient = require("@azure/cosmos").CosmosClient;
+    const config = {
+        databaseId: "outDatabase",
+        containerId: "MyCollection",
+        connectiongString: process.env["cosmos-ruuvi-test_DOCUMENTDB"]
+      };   
+
     const { databaseId, containerId, connectiongString } = config;
     const client = new CosmosClient(connectiongString);
     const database = client.database(databaseId);
