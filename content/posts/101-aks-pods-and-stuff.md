@@ -23,7 +23,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 ```
 I'm not going to use that approach, but if you're eager to get kicking the tires of a AKS cluster, you can get started with [Microsoft's AKS quickstart](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) and run those commands. If you did use the previous commands to get started, you just deployed the cluster using default settings. Let's have a look of some of the defaults, and I'll introduce some of the other options as well.
 
-##Networking
+## Networking
 
 I'm not going to go much into details as this is a 101 post, but there are two options for AKS network models, *kubenet* (basic and default) and *Azure CNI* (advanced). One fundamental difference between the two is how IP addresses are allocated to pods. With kubenet, the nodes get an IP address from the virtual network subnet they are connected to, and pods receive an IP address from different address space. Traffic is NAT'd to node's IP address. With Azure CNI, every pod gets an IP address from the same subnet as the nodes and pods can be accessed directly. This means we need more planning with IP addresses not to run out of IP addresses. This might prevent adding new nodes when scaling or upgrading a cluster.
 
@@ -33,7 +33,7 @@ If you did deploy the cluster with default options, you deployed the cluster wit
 
 I'm going to use Azure CNI (```--network-plugin azure```) in the later demo environment, as I don't need to be afraid of running out of IP addresses. It's also worth mentioning that Microsoft's best practices](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model) recommend Azure CNI when using existing virtual networks or on-premises networks.
 
-##Nodes 
+## Nodes 
 
 To be able to run applications and supporting services, we need a node (Azure virtual machine running Kubernetes node components and container runtime). We can run one or more nodes in a cluster. Preferably more than one, so that we can meet the minimum level of availability and reliability for the workloads. Three nodes is recommended for system node pool, and minimum of two for user node pools. By default when deploying AKS, the cluster ends up with three system nodes. We can change it through ```--node-count``` parameter. 
 
@@ -43,7 +43,7 @@ Default virtual machine size for Linux clusters is Standard_DS2_v2 (2vCPU, 7GB),
 
 When deploying AKS cluster, Azure creates by default a second resource group for the worker nodes and network resources. By default the name of the resource group is *MC_resourcegroupname_clustername_location*. Be sure to check out what's in the resource group after the cluster deployment. If you don't like the name of the resource group, it can be customized at the time of the cluster creation by using ```--node-resource-group``` parameter. You will need to install aks-preview (```az extension add --name aks-preview```) extension version 0.3.2 or later.
 
-##Kubernetes version
+## Kubernetes version
 
 As Azure manages the master node for us, we can't just pick whatever Kubernetes version we want to use. Current version by default is set to 1.17.11, but we can select another one using ```--kubernetes-version```. To learn which versions are available in each region, we can search them with ```az aks get-versions --location westeurope```. Note that different regions might offer different versions. 
 
@@ -51,7 +51,7 @@ As Azure manages the master node for us, we can't just pick whatever Kubernetes 
 
 You can check available upgrades for your cluster with ```az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster``` and upgrade the cluster with ```az aks upgrade```. Please test the upgrades first in dev and test environments!
 
-##Service Principal vs Managed Identity 
+## Service Principal vs Managed Identity 
 
 AKS cluster requires either an Azure AD service principal or a managed identity. Why? To interact with Azure APIs, for example to dynamically create and manage Azure resources. When deploying AKS cluster with default options, a service principal is automatically created. Service principal can also be created manually, and assigned during AKS cluster creation with ```--service-principal <appId> --client-secret <password>``` parameters. Service principal for the AKS cluster can be used to access other Azure resources by delegating permissions to those resources using role assignments. By default service principal credentials are valid for one year and needs to be renewed to keep the cluster working.
 
@@ -59,17 +59,17 @@ AKS cluster requires either an Azure AD service principal or a managed identity.
 
 Managed identity can be enabled (```--enable-managed-identity```) for the cluster *only* at the time of the cluster creation. Note that it's not possible to migrate existing AKS clusters to managed identities.
 
-##Azure AD integration
+## Azure AD integration
 
 By default AKS is not integrated with Azure AD, either for user authentication or for controlling access to cluster resources, but we can do that. There are even two ways to do this (the legacy way and the new way), I suggest to go with the new :). You can use ```--enable-aad --aad-admin-group-object-ids <id>``` while deploying the cluster, or later if you want to enable the integration for an existing cluster. We can also configure Kubernetes RBAC to control access to namespaces and cluster resources based a user's Azure AD identity or group membership.
 
 **Note!** Once AKS-managed Azure AD integration is enabled it can't be disabled.
 
-##Monitoring
+## Monitoring
 
 We all know how important it is to have logging and monitoring in place. Otherwise we would be running blind when troubleshooting performance issues. We can achieve visibility to memory and processor utilization of nodes, controllers and containers using Azure Monitor for containers. By default monitoring is not enabled, but can be enabled with ```--enable-addons monitoring```. In the backgroung this will make use of Log Analytics workspace (we can specify existing with ```--workspace-resource-id```) and containerized Log Analytics agent for Linux.
 
-##Access to server API
+## Access to server API
 
 Enough is enough, I hear you say. 
 
@@ -83,7 +83,7 @@ What if we wanted to restrict the traffic between API server and the nodes to re
 
 **Note!** You can't convert existing AKS cluster to private cluster.
 
-##Demo setup
+## Demo setup
 
 Finally, it's time to push the gas pedal and deploy us an AKS cluster. I'll personally do this from the Azure Cloud Shell, using some of the parameters we learned earlier.
 
@@ -110,7 +110,7 @@ az aks create \
 ```
 After a while my new and shiny AKS cluster is up and running.
 
-##Connecting to the cluster
+## Connecting to the cluster
 
 As Cloud Shell already includes all the necessary tools to connect to the AKS cluster, we can get our credentials with ```az aks get-credentials --resource-group $RG --name $AKS``` which downloads the credentials and configures kubeconfig for us.
 
@@ -123,7 +123,7 @@ aks-nodepool1-39782595-vmss000001   Ready    agent   51m   v1.18.8
 
 If we then try ```kubectl get pods```, we are not seeing any. Well obviously we don't see any as we haven't deployed pods to *default* namespace. We can list the system pods runnign in namespace *kube-system* by ```kubectl get pods -n kube-system```. Now we should get some system pods listed, among them should be at least coredns, azure-cni and kube-proxy. 
 
-##Deploying some pods and stuff
+## Deploying some pods and stuff
 
 As you probably know a Pod is the smallest deployable unit of computing that can be created and managed in Kubernetes. In Kubernetes Pods are usually created using workload resources such as *Deployments*. So let's kick off a deployment using a sample deployment ```kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1```. In the background a suitable node will be selected and a pod will be scheduled to run there. 
 
@@ -145,7 +145,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE   IP    
 kubernetes-bootcamp-6f6656d949-4nt9c   1/1     Running   0          6m    10.240.0.46   aks-nodepool1-39782595-vmss000001   <none>           <none>
 ```
 
-##Access the pods
+## Accessing and exposing the pods
 
 So what should we do access the pod? For starters we can connect through the pod's IP address as we are using Azure CNI. Then it's just a matter of entering http://{ip-address-of-the-pod}:8080 into a web browser, curl or whatever, and I'll get greeted with: "Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-6f6656d949-4nt9c | v=1". 
 
@@ -160,7 +160,7 @@ I will then need an IP address of one of the nodes. I can get them by ```kubectl
 
 Let's try one more approach. Let's first delete the service (```kubectl delete service kubernetes-bootcamp```) and create a new one. This time let's expose the deployment with a public Azure LoadBalancer (```kubectl expose deployment/kubernetes-bootcamp --type=LoadBalancer --port 8080```). Then we can run ```kubectl get svc kubernetes-bootcamp``` again to get the public ip (EXTERNAL-IP from the output) address of the exposed service. This time let's hit http://{EXTERNAL-IP}:8080 and we'll receive the same greeting. Nice work!
 
-##Replicas
+## Replicas
 
 Let's switch gears a little. Currently we have only been running one single pod, so it would be good to have some more replicas to provide some resilience for our application. Let's do that now, and scale the deployment to four replicas (```kubectl scale deployments/kubernetes-bootcamp --replicas=4```). We can check the status by ```kubectl get deployment/kubernetes-bootcamp```. It should soon show that we have four replicas running. If we now keep hitting http://{EXTERNAL-IP}:8080, we should start getting responses from different pods. Looks like it works!
 
@@ -168,7 +168,7 @@ Let's now delete one of the pods. I'll use the first one (```kubectl delete pod 
 
 When we initally created the Deployment, a ReplicaSet was rolled out. And it is the job of the ReplicaSet to create and watch over the pods. We can check the ReplicaSets in a cluster with ```kubectl get replicasets```.
 
-#Updating application
+## Updating application
 
 For now we have been running v1 of the application. Let's update the version to v2 with ```kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2```. Kubernetes will rollout the updated version to the pods, so if we once again hit the application, we will be greeted with v2 ("Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-86656bc875-67l4r | v=2") of the application. You might have noticed that the hash part of the pod's name has changed from 6f6656d949 to 86656bc875. Same hash should be visible in the name of the replicaset. You can once again check the ReplicaSets in a cluster with ```kubectl get replicasets```.
 
@@ -183,15 +183,17 @@ NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 kubernetes-bootcamp   3/4     2            3           40m
 ```
 
-If we check the pods (```kubectl get pods```), we can see that two pods in status ImagePullBackOff. We can then use ```kubectl describe pods/{pod-name-here}``` to see more details about the pod's events, which confirms to us that there is no v10 of the image. Let's roll back the deployment to v2 by running ```kubectl rollout undo deployments/kubernetes-bootcamp```. We can then check that everything is back to normal by running (```kubectl get deployments```). Output should report to us that four out of four pods are now ready and serving consumers.
+If we check the pods (```kubectl get pods```), we can see that two pods in status ImagePullBackOff. We can then use ```kubectl describe pods/{pod-name-here}``` to see more details about the pod's events, which confirms to us that there is no v10 of the image. Let's roll back the deployment to v2 by running ```kubectl rollout undo deployments/kubernetes-bootcamp```. We can then check that everything is back to normal by running (```kubectl get deployments```). Output should report us that four out of four pods are now ready to serve consumers.
 
-Because monitoring-addon was enabled for this cluster, we can go ahead and check the metrics of kubernetes-bootcamp containers, and drill in to the details if needed.
+## Monitoring
+
+Because monitoring-addon was enabled for this cluster, we can go ahead and check the metrics of kubernetes-bootcamp containers, and drill in to the details if needed. Head into the Portal and click *Insights* under Monitoring.
 
 ![Metrics of kubernetes-bootcamp containers](/images/aks-insights-portal.png)
 
 That's it for this post.
 
-##Removing resources
+## Removing resources
 
 So, we have reached the end of the post, and it's time to remove the resources to avoid unnecessary costs.
 
@@ -199,7 +201,7 @@ So, we have reached the end of the post, and it's time to remove the resources t
 az group delete --name rg-aks-building4-dev --yes --no-wait
 ```
 
-##Summary and what's next
+## Summary and what's next
 
 I hope you found my 101 AKS post useful. I tried to introduce you to some of the basics and defaults of AKS cluster deployment. And we also got to play around, kick the tires and see how we can interact with pods. 
 
