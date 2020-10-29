@@ -31,7 +31,7 @@ If you did deploy the cluster with default options, you deployed the cluster wit
 
 **Note!** If you need to use Windows Server node pools, you must use Azure CNI as kubenet is not available for Windows Server containers.
 
-I'm going to use Azure CNI (```--network-plugin azure```) in the later demo environment, as I don't need to be afraid of running out of IP addresses. It's also worth mentioning that Microsoft's best practices](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model) recommend Azure CNI when using existing virtual networks or on-premises networks.
+I'm going to use Azure CNI (```--network-plugin azure```) in the later demo environment, as I don't need to be afraid of running out of IP addresses. It's also worth mentioning that [Microsoft's best practices](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model) recommend Azure CNI when using existing virtual networks or on-premises networks.
 
 ## Nodes 
 
