@@ -8,7 +8,7 @@ tags: ["azure", "aks", "kubernetes", "CLI"]
 draft: false
 ---
 
-![101 AKS](/images/101-aks.png)
+![101 AKS](/images/aks-101.png)
 
 I know this blog post is long overdue. No excuses. Been to ~~busy~~ lazy.
 
