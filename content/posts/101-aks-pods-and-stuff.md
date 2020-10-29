@@ -14,7 +14,7 @@ I know this blog post is long overdue. No excuses. Been to ~~busy~~ lazy.
 
 Thanks for being here, let's start with 101 on AKS defaults, nodes, pods and stuff. 
 
-I'm sure you all know that [AKS](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) is a hosted Kubernetes service from Microsoft. Azure manages Kubernetes master nodes for us, and we only need to manage and maintain the user nodes. And we will only pay for the user nodes. In case you're interested on building a self-managed Kubernetes playground cluster, see my [previous post](/posts/set-up-kubernetes-cluster-playground-with-azure-virtual-machines-and-cli). In this blog I will introduce the basics and guide you trough a provisioning of an AKS cluster using Azure CLI.
+I'm sure you all know that [AKS](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) is a hosted Kubernetes service from Microsoft. Azure manages Kubernetes master nodes for us, and we only need to manage and maintain the user nodes. And we will only pay for the user nodes. In case you're interested on building a self-managed Kubernetes playground cluster, see my [previous post](/posts/set-up-kubernetes-cluster-playground-with-azure-virtual-machines-and-cli). In this blog I will introduce the basics and guide you through a provisioning of an AKS cluster using Azure CLI.
 
 Probably the easiest way to get started is running just the following two commands: 
 ```bash
