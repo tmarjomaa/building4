@@ -185,6 +185,10 @@ kubernetes-bootcamp   3/4     2            3           40m
 
 If we check the pods (```kubectl get pods```), we can see that two pods in status ImagePullBackOff. We can then use ```kubectl describe pods/{pod-name-here}``` to see more details about the pod's events, which confirms to us that there is no v10 of the image. Let's roll back the deployment to v2 by running ```kubectl rollout undo deployments/kubernetes-bootcamp```. We can then check that everything is back to normal by running (```kubectl get deployments```). Output should report to us that four out of four pods are now ready and serving consumers.
 
+Because monitoring-addon was enabled for this cluster, we can go ahead and check the metrics of kubernetes-bootcamp containers, and drill in to the details if needed.
+
+![Metrics of kubernetes-bootcamp containers](/images/aks-insights-portal.png)
+
 That's it for this post.
 
 ##Removing resources
