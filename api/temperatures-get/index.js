@@ -12,46 +12,38 @@ module.exports = async function (context, req) {
     const container = database.container(containerId);
 
     const mac = (req.query.mac || (req.body && req.body.mac));
+    const ruuvimacs = process.env["cosmos-ruuvi-macs"];
 
-    if (mac) {
-        try {
-            const querySpec = {
+    const getTemperature = async mac => {
+        const querySpec = {
             query: "SELECT * from c WHERE c.mac=@mac ORDER BY c._ts DESC OFFSET 0 LIMIT 1",
             parameters: [{ name: "@mac", value: mac }]
             };
-
+    
             const { resources: items } = await container.items
             .query(querySpec)
             .fetchAll();
+        return items;
+    }
 
-            context.res.status(200).json(items);
+    if (mac) {
+        try {
+            const temperature = await getTemperature(mac);
+            context.res.status(200).json(temperature);
         } catch (err) {
-            console.log(err.message);
+            context.log(err.message);
             context.res.status(500).send(error);
         }
     } else {
         try {
-            const querySpec = {
-            query: "SELECT * from c WHERE c.mac=@mac ORDER BY c._ts DESC OFFSET 0 LIMIT 1",
-            parameters: [{ name: "@mac", value: "f39a99eac7c2" }]
-            };
-
-            const { resources: items } = await container.items
-            .query(querySpec)
-            .fetchAll();
-
-            const querySpec2 = {
-            query: "SELECT * from c WHERE c.mac=@mac ORDER BY c._ts DESC OFFSET 0 LIMIT 1",
-            parameters: [{ name: "@mac", value: "cdf431cfc39d" }]
-            };
-
-            const { resources: items2 } = await container.items
-            .query(querySpec2)
-            .fetchAll();
-
-            context.res.status(200).json(items.concat(items2));
+            var temperatures = [];
+            var macs = ruuvimacs.split(",");
+            for (let index = 0; index < macs.length; index++) {
+                temperatures.push(await getTemperature(macs[index]));
+            }
+            context.res.status(200).json(temperatures.flat());
         } catch (err) {
-            console.log(err.message);
+            context.log(err.message);
             context.res.status(500).send(error);
         }
     }
