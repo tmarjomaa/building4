@@ -3,7 +3,7 @@ module.exports = async function (context, req) {
     const config = {
         databaseId: "outDatabase",
         containerId: "MyCollection",
-        connectiongString: process.env["cosmos-ruuvi-test_DOCUMENTDB"]
+        connectiongString: process.env["cosmos_ruuvi_test_DOCUMENTDB"]
       };   
 
     const { databaseId, containerId, connectiongString } = config;
@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
     const container = database.container(containerId);
 
     const mac = (req.query.mac || (req.body && req.body.mac));
-    const ruuvimacs = process.env["cosmos-ruuvi-macs"];
+    const ruuvimacs = process.env["cosmos_ruuvi_macs"];
 
     const getTemperature = async mac => {
         const querySpec = {
