@@ -1,14 +1,14 @@
 ---
 title: "About"
 description: "Building 4 is a personal blog for posts mostly around Azure, DevOps, Kubernetes, Powershell, security and whatever I feel like is worth writing."
-date: "2020-04-15"
+date: "2021-12-28"
 menu: "main"
 meta: "false"
 weight: "20"
 ---
 Subject: Tommi Marjomaa  
 Location: Vantaa, Finland  
-Work: One of #makersoftomorrow in [Cybercom](https://cybercom.com)
+Work: One of the #Makers of a Sustainable Future at [Knowit](https://knowit.fi)
 
 _"The knight who doesn't believe in Holy Grail, will never find it."_
 
