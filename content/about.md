@@ -1,7 +1,8 @@
 ---
 title: "About"
 description: "Building 4 is a personal blog for posts mostly around Azure, DevOps, Kubernetes, Powershell, security and whatever I feel like is worth writing."
-date: "2021-12-28"
+date: "2020-04-15"
+lastmod: "2021-12-28"
 menu: "main"
 meta: "false"
 weight: "20"
