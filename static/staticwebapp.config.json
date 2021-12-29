@@ -8,6 +8,6 @@
     "Access-Control-Allow-Origin": "https://www.building4.cloud https://zealous-sky-0fbad1c03-*.westeurope.azurestaticapps.net/",
     "X-Frame-Options": "SAMEORIGIN",
     "Permissions-Policy": "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
-    "Content-Security-Policy-Report-Only": "default-src 'self'; script-src 'self' https://www.google-analytics.com; style-src 'self' https://www.building4.cloud https://building4.cloud https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://www.building4.cloud https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://www.google-analytics.com; img-src 'self' https://www.building4.cloud https://building4.cloud"
+    "Content-Security-Policy-Report-Only": "default-src 'self'; script-src 'self' https://www.google-analytics.com 'sha256-PUSlAtizDrORCfZoOJPtUzXvUuOjE48KCDHZBflYMTE='; style-src 'self' https://www.building4.cloud https://building4.cloud https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://www.building4.cloud https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://www.google-analytics.com; img-src 'self' https://www.building4.cloud https://building4.cloud"
   }
 }
