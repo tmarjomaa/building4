@@ -3,5 +3,9 @@
     "404": {
       "rewrite": "/404.html"
     }
+  },
+  "globalHeaders": {
+    "X-Frame-Options": "SAMEORIGIN",
+    "Permissions-Policy": "accelerometer=(), battery=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
   }
 }
