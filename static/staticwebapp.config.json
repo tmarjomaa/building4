@@ -6,6 +6,7 @@
   },
   "globalHeaders": {
     "X-Frame-Options": "SAMEORIGIN",
-    "Permissions-Policy": "accelerometer=(), battery=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+    "Permissions-Policy": "accelerometer=(), battery=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()",
+    "Content-Security-Policy-Report-Only": "default-src 'self'; script-src 'self' https://www.google-analytics.com; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self'; img-src 'self'"
   }
 }
