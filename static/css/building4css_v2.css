@@ -15,3 +15,10 @@ a, #text404 {
     text-align: center;
     margin-top: 6rem;
 }
+
+.nobullets-social-share {
+    list-style-type: none;
+    display:flex;
+    margin-right: 0.5em;
+    padding-inline-start:0px;
+}
