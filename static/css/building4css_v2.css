@@ -16,9 +16,12 @@ a, #text404 {
     margin-top: 6rem;
 }
 
-.nobullets-social-share {
+.nobullets-social-share-ul {
     list-style-type: none;
     display:flex;
-    margin-right: 0.5em;
     padding-inline-start:0px;
+}
+
+.nobullets-social-share-li {
+    margin-right: 0.5em;
 }
