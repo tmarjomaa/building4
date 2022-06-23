@@ -16,7 +16,7 @@ module.exports = async function (context, req) {
 
     const getTemperature = async mac => {
         const querySpec = {
-            query: "SELECT * from c WHERE c.mac=@mac ORDER BY c._ts DESC OFFSET 0 LIMIT 1",
+            query: "SELECT c.eventDate, c.mac, c.location, c.temperature, c.humidity, c.pressure, c.battery from c WHERE c.mac=@mac ORDER BY c._ts DESC OFFSET 0 LIMIT 1",
             parameters: [{ name: "@mac", value: mac }]
             };
     
