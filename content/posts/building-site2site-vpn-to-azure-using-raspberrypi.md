@@ -4,10 +4,10 @@ title: "Building a Site-to-Site VPN to Azure using Raspberry Pi"
 linktitle: "Building a Site-to-Site VPN to Azure using Raspberry Pi"
 description: "In this blog article I will be building a site-to-site vpn between my home office and Azure using a Raspberry Pi."
 date: "2023-06-24T12:00:00+03:00"
-tags: ["azure", "raspberrypi", "vpngw", "bicep", "CLI"]
+tags: ["azure", "raspberrypi", "strongswan", "vpngw", "bicep", "CLI"]
 draft: false
 ---
-There are times when I need to use or test something in Azure using a private and secure connectivion from my hone office. This is where a VPN connections come into the picture. I had an extra Raspberry Pi laying around and decided to use it as a vpn gateway for my site-to-site connection.
+There are times when I need to use or test something in Azure using a private and secure connection from my home office. This is where VPN connections come into the picture. I had an extra Raspberry Pi laying around and decided to use it as a vpn gateway for the site-to-site connection.
 
 First we'll take a look of the overall architecture. Then we'll dig into provisioning the Azure resources, configuring the Raspberry Pi and the home office network. Lastly we'll make sure that the vpn tunnel is established and working. 
 
@@ -16,13 +16,13 @@ The overall architecture is pretty simple. In Azure I have a traditional hub-and
 
 ![Overall architecture](/images/raspi-vpn-overall-architecture.png)
 
-For this article we can assume that I have a home network of ```192.168.10.0/24``` and I have reserved ```10.112.0.0/21``` network for Azure use.
+For this article we can assume that I have a home network of ```192.168.10.0/24``` and that I have reserved ```10.112.0.0/21``` network for Azure use.
 
 As the deployment of the vpn gateway will take some (typically 45 mins or so), we'll start with setting up Azure side.
 
 ## Setting up Azure resources
 
-To make sure we have the hub vnet ready with a subnet called GatewaySubnet (Yes, you need to name it like that!). I also have added two additional subnets to the template, one for Azure Bastion and another for shared resources. To keep it simpler I haven't included any spoke vnets and peerings. You can find the templates files from [GitHub](https://github.com/tmarjomaa/templates/tree/master/hub-and-spoke). 
+We need to make sure we have the hub vnet ready with a subnet called GatewaySubnet (Yes, you need to name it like that!). I have also added two additional subnets to the template, one for Azure Bastion and another for shared resources. To keep it simpler I haven't included any spoke vnets and peerings. You can find the templates files from [GitHub](https://github.com/tmarjomaa/templates/tree/master/hub-and-spoke). 
 
 So, let's create the hub vnet using az cli & bicep cli. Note that I'm using [.bicepparam parameter files](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/parameter-files?tabs=Bicep) to pass necessary parameters. You need to be using Bicep CLI version 0.18.4 or newer with them.
 
@@ -35,7 +35,7 @@ $ az deployment group create --name hub-vnet-deployment --resource-group hub-vne
 
 That shouldn't take too long. After the vnet is created, it's time to create the vpn gateway and some additional resources: a public ip for the vpn gateway, a local network gateway representing home office, and the site-to-site connection resource. 
 
-As the current public ip of the home office is needed for the local network gateway, I'll just grab it using ```curl```. I could of course use a dynamic dns service and use a fqdn host name, but let's continue with an ip this time. If you look at the the [template file](https://github.com/tmarjomaa/templates/tree/master/vpngw-s2s-homeoffice), you can see that I'm using a Basic SKU as that fits my needs, and is the cheapest option as well. You can read more about the SKUs and their differences on [MS Learn](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). I have set a fqdn (```building4cloud-vpngw-prod.westeurope.cloudapp.azure.com```) for the vpn gateway's public ip.
+As the current public ip of the home office is needed for the local network gateway, I'll just grab it using ```curl```. I could of course use a dynamic dns service and use a fqdn host name, but let's continue with an ip this time. If you look at the the [template file](https://github.com/tmarjomaa/templates/tree/master/vpngw-s2s-homeoffice), you can see that I'm using a Basic SKU as that fits my needs, and is the cheapest option as well. You can read more about the SKUs and their differences on [MS Learn](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). I have set a fqdn (```building4cloud-vpngw-prod.westeurope.cloudapp.azure.com```) to the vpn gateway's public ip.
 
 Note that I have removed the values of shared key (param sharedKey) and home office public ip (param homeOfficePublicIpAddress) from the parameters file. Those will be needed of course.
 
@@ -52,8 +52,8 @@ As I have the router in front of the Raspberry Pi, I need to make some configura
 1. Making sure that necessary ports (UDP 500 and UDP 4500) are allowed through the firewall and forwarded to the Raspberry Pi. 
 2. Making sure traffic destined to Azure vnet is routed to Raspberry Pi.
 
-Once those are done we can then log in to the Raspberry and finish up it's configuration. 
-Installing strongswan to the Raspberry Pi is simple. 
+Once those are done we can then log in to the Raspberry Pi and finish up it's configuration. 
+Installing strongswan to the Raspberry Pi is as simple as this. 
 
 ```bash
 $ sudo apt update && sudo apt upgrade -y
@@ -66,9 +66,10 @@ After installing strongswan let's stop for a moment to check some of the necessa
 net.ipv4.ip_forward=1
 ```
 
-Then we need to make some configuration on ```/etc/ipsec.conf``` and ```/etc/ipsec.secrets```. Official documentation can be found [here](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf) and [here](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecSecrets).
+Then we need to make some configuration on ```/etc/ipsec.conf``` and ```/etc/ipsec.secrets```. Official documentation for both files can be found [here](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf) and [here](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecSecrets).
 
-Let's make some configuration in ```/etc/ipsec.conf``` next. 
+Let's make some configuration in ```/etc/ipsec.conf``` next.
+
 ```bash
 # ipsec.conf - strongSwan IPsec configuration file
 
@@ -99,7 +100,7 @@ conn homeoffice-to-azure
         dpdaction=restart
         auto=start
 ```
-Nothing much to see here. I'll shortly go trough the connection ([conn](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf)) configration. Left is home office, and right is Azure, which is quite self-explanatory when looking at the values. We can see that ```right``` has been set to the fqdn I have configured for the public ip attached to the vpn gateway, and the ```rightsubnet``` has been set to the whole Azure network reservation mentioned earlier. Same goes with ```leftsubnet``` which is set to the home office network mentioned earlier. Also note that when using a fqdn for right, you need to set ```rightid=%any```, meaning that the host behind the fqdn can have any ip address. Same applies for ```left``` and ```leftid``` too.
+Nothing much to see here. I'll shortly go trough the connection ([conn](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf)) configration. Left is home office, and right is Azure, which is quite self-explanatory when looking at the values. We can see that ```right``` has been set to the fqdn I configured for the public ip attached to the vpn gateway, and the ```rightsubnet``` has been set to the whole Azure network reservation mentioned earlier. Same goes with ```leftsubnet``` which is set to the home office network mentioned earlier. Also note that when using a fqdn for right, you need to set ```rightid=%any```, meaning that the host behind the fqdn can have any ip address. Same applies for ```left``` and ```leftid``` too.
 
 Lastly I'll shortly explain ```ìke``` and ```esp``` values. The values represent selected encryption/authentication algorithms that'll be used for the vpn tunnel between Azure and home office. In case you want to use something else, look [here](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html) for strongswan and [here](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-compliance-crypto#custom-ipsecike-policy-with-azure-vpn-gateways) for Azure ciphers. The exclamation mark (```!```) in the end means that the responder is restricted to those values.
 
@@ -123,7 +124,7 @@ $ sudo ipsec restart
 $ sudo ipsec status
 ```
 
-The first command restarts the daemon and should automatically bring up the tunnel. While the second one should show us that the tunnel is up and running. You should be seeing something like the following:
+The first command restarts the daemon and should automatically bring up the tunnel. While the second one should show us that the tunnel is up and running. You should be seeing something that looks like the following:
 
 ```bash
 Security Associations (1 up, 0 connecting):
