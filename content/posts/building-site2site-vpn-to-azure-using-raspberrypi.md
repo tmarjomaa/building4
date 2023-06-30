@@ -145,7 +145,7 @@ Finally let's deploy a test vm in Azure and check that the tunnel actually works
 ```bash 
 SUBNETID=$(az network vnet subnet show --resource-group hub-vnet-prod --name SharedServicesSubnet --vnet-name hub-vnet-prod --query="id" -o tsv)
 $ az group create --name vm-test --location westeurope --tags owner=tommi@building4.cloud
-$ az vm create --resource-group vm-test --name vm1 --location westeurope --image debian --admin-username b4cloudadmin --generate-ssh-keys --size Standard_B2s --subnet --public-ip-address "" --nsg "" --subnet $SUBNETID
+$ az vm create --resource-group vm-test --name vm1 --location westeurope --image debian --admin-username b4cloudadmin --generate-ssh-keys --size Standard_B2s --public-ip-address "" --nsg "" --subnet $SUBNETID
 ```
 
 Once the vm is created, it's private ip will be in the output (```"privateIpAddress": "10.112.0.36"```). To make sure the tunnel works, we can always use ping, or we can use the ssh keys just generated and access the vm.
