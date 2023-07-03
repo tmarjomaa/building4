@@ -1,7 +1,7 @@
 ---
 author: "Tommi Marjomaa"
-title: "Let's give Azure Data Exploer Kusto emulator a spin in WSL"
-linktitle: "Let's give Azure Data Exploer Kusto emulator a spin in WSL"
+title: "Let's give Azure Data Explorer Kusto emulator a spin in WSL"
+linktitle: "Let's give Azure Data Explorer Kusto emulator a spin in WSL"
 description: "In this blog post I will be spinning up Azure Data Explorer Kusto emulator in WSL"
 date: "2023-07-03T12:00:00+03:00"
 tags: ["azure", "azuredataexplorer", "wsl", "docker", "kusto", "kql"]
