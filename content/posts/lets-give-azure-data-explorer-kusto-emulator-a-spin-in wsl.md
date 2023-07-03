@@ -36,7 +36,7 @@ $ newgrp docker
 $ docker --version
 ```
 
-If you are getting errors about that docker daemon cannot be connected, let's make sure [systemd is enabled(https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/)]. While inside the WSL distro, let's edit ```/etc/wsl.conf``` file by running ````sudo nano /etc/wsl.conf```. Add the following configuration to the file and close the editor.
+If you are getting errors about that docker daemon cannot be connected, let's make sure [systemd is enabled](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/). While inside the WSL distro, let's edit ```/etc/wsl.conf``` file by running ```sudo nano /etc/wsl.conf```. Add the following configuration to the file and close the editor.
 
 ```
 [boot]
@@ -63,7 +63,7 @@ Make sure you use *http://localhost:8080* for cluster connection (yes http, not 
 
 We could now use some basic commands. For example to create a new database in the container's RAM, we can use ```.create database <database-name> volitale```, to create a table ```.create table mytable(Name:string, Id:int)``` and to ingest data from a local ```.ingest into table mytable(@"/my-data-file.csv")```.
 
-But we are going to try and use something else this time. Let's try with [Kusto Detective Agency's(https://detective.kusto.io/)] data set (Season 2 Onboarding case).
+But we are going to try and use something else this time. Let's try with [Kusto Detective Agency's](https://detective.kusto.io/) data set (Season 2 Onboarding case).
 
 ```Kusto
 .execute database script <|
@@ -140,7 +140,7 @@ Once you provide the correct answer, you'll get a shiny new badge ([credly](http
 
 ![Kusto Detective Agency - Onboarding badge](/images/kusto-s2-onboarding-badge.png) 
 
-Before heading out to solve some of the other cases and to achieve rank prompotions on the Detective agency, I'll run few more queries. This time adding the [month of year](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/monthofyearfunction) and [summarizing](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator) the data by month.
+Before heading out to solve some of the other cases and to achieve rank promotions on the Detective agency, I'll run few more queries. This time adding the [month of year](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/monthofyearfunction) and [summarizing](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator) the data by month.
 
 ```Kusto
 DetectiveCases
