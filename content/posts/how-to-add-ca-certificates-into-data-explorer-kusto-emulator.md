@@ -52,7 +52,7 @@ LABEL version="0.1-building4cloud"
 
 We know from the previous runs that the docker image exposes port 8080. We can also see that from ```docker inspect``` output.
 
-```json
+```
 "ExposedPorts": {
     "8080/tcp": {}
 }
@@ -65,7 +65,7 @@ EXPOSE 8080/tcp
 ```
 We can also see information about the environment variables from the output.
 
-```json
+```
 "Env": [
     "ACCEPT_EULA=Y",
     "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
@@ -83,7 +83,7 @@ ENV TZ="Europe/London"
 
 And the last thing we need is *ENTRYPOINT*, which allows us to configure the container to be run as an executable. We can get the information from the output as well.
 
-```json
+```
 "Entrypoint": [
     "/bin/sh",
     "-c",
