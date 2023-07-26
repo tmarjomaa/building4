@@ -2,8 +2,8 @@
 author: "Tommi Marjomaa"
 title: "How to add CA certificates into Data Explorer Kusto emulator docker image"
 linktitle: "How to add CA certificates into Data Explorer Kusto emulator docker image"
-description: "In this blog post I will be buliding a Azure Data Explorer Kusto emulator docker image that can connect https endpoints."
-date: "2023-07-04T12:00:00+03:00"
+description: "In this blog post I will be building a custom Azure Data Explorer Kusto emulator docker image that can connect to https endpoints."
+date: "2023-07-26T12:00:00+03:00"
 tags: ["azure", "azuredataexplorer", "docker", "kusto", "kql"]
 draft: false
 ---
