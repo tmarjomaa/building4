@@ -7,7 +7,7 @@ date: "2023-07-26T12:00:00+03:00"
 tags: ["azure", "azuredataexplorer", "docker", "kusto", "kql"]
 draft: false
 ---
-Remember my [previous blog post](/posts/lets-give-azure-data-explorer-kusto-emulator-a-spin-in-wsl) where I was spinning up Azure Data Explorer Kusto emulator in WSL? During the test I had problems ingesting data from https. Let's see if we can fix that.
+Remember my [previous blog post](/posts/lets-give-azure-data-explorer-kusto-emulator-a-spin-in-wsl) where I was spinning up Azure Data Explorer Kusto emulator in WSL? During the test I had problems ingesting data from https sources. Let's see if we can fix that.
 
 ## What was the problem?
 
