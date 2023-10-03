@@ -9,9 +9,9 @@ draft: false
 ---
 ![A view of the Service Retirement workbook](/images/service-retirement-header.png)
 
-We all know how rapidly all public cloud providers like to introduce new features and services. At the same time some of the old stuff needs to go. It's sometimes hard to keep up and follow all the comunication channels to ensure you're not running any services or resources that are about to get the boot.
+We all know how rapidly all public cloud providers like to introduce new features and services. At the same time some of the old stuff needs to go. It's sometimes hard to keep up and follow all the communication channels to ensure you're not running any services or features that are about to get the boot.
 
-I was happy to notice that [Microsoft announced](https://techcommunity.microsoft.com/t5/azure-governance-and-management/announcing-the-public-preview-of-service-retirement-workbook-in/ba-p/3848168) in middle of the summer a public preview of Service Retirement workbook, which, by Microsofts definition, *provides a single centralized resource level view of service retirements that may require customer action to mitigate*.
+I was happy to notice that [Microsoft announced](https://techcommunity.microsoft.com/t5/azure-governance-and-management/announcing-the-public-preview-of-service-retirement-workbook-in/ba-p/3848168) in middle of the summer a public preview of Service Retirement workbook, which, by Microsoft's definition, *provides a single centralized resource level view of service retirements that may require customer action to mitigate*.
 
 Sounds promising. Let's take look.
 
@@ -29,17 +29,17 @@ In case you want to see all services doomed for retirement, you can use the togg
 
 ![Toggle for switching the view between all services and only affected services.](/images/advisor-filters.png)
 
-It really isn't a big surprise that there are loads of Classic resources soon to retire.
+It really isn't a big surprise that there are loads of Classic resources soon to retire. Those services and features that have already been retired, or are really close of being retired, are marked with a red line.
 
-![A list of all soon-to-retire services](/images/advisor-retiring-services-all.png)
+![A list of all really soon-to-retire services](/images/advisor-retiring-services-all.png)
 
-One thing to note here. *Currently, the workbook contains information for subset of services and features that are in the retirement lifecycle*. So, you can't just rely on the information shown in the workbook to be on the safe side.
+One thing to note here, and also mentioned in the workbook's description is that *currently, the workbook contains information for subset of services and features that are in the retirement lifecycle*. So, you can't just rely on the information shown in the workbook to be on the safe side.
 
-So, better monitor those service retirements updates on [Azure updates](https://azure.microsoft.com/en-gb/updates/?updateType=retirements). And perhaps you should also follow Service Health advisories I encourage you to even set up Service Health alerts for those advisories.
+So, better monitor those service retirement updates on [Azure updates](https://azure.microsoft.com/en-gb/updates/?updateType=retirements). And perhaps you should also follow Service Health advisories. I even encourage you to set up Service Health alerts for those advisories.
 
 ![A list of two service health advisories](/images/service-health-advisories.png)
 
-Looks like I need to do some work with updating the Cosmos DB extension for an Azure Function and the way to collect activity logs.
+Looks like I need to do some work with updating Cosmos DB extension version for an Azure Function and the way I collect activity logs.
 
 ## Lastly
 
