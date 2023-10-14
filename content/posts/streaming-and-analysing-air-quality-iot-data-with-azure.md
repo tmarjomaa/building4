@@ -156,7 +156,7 @@ As it is a bit boring to look at a table, let's quickly do a dashboard by clicki
 
 We need to *add tile* and create *Data source* for it. Cluster address is needed in this step.
 
-![Creating a data connection for the dashboard](airquality-adx-dashboard-connection.png)
+![Creating a data connection for the dashboard](/images/airquality-adx-dashboard-connection.png)
 
 Once the data connection has been created we can create a simple kql query to be used for the dashboard. 
 
@@ -166,7 +166,7 @@ airquality
 ```
 After saving the changes, we end up seeing similar view of the data in the table as previously. Let's finally change it to be bit more visual. By first clicking the *pencil-icon*, we can change the *Visual type* to for example a *Line chart*, and maybe even giving the tile a more meaningful name like *Home office air quality*.
 
-![Creating a data connection for the dashboard](airquality-adx-dashboard-visualization.png)
+![Creating a data connection for the dashboard](/images/airquality-adx-dashboard-visualization.png)
 
 We can see that the measurement values are reasonable low, and that's a good thing.
 
