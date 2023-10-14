@@ -38,7 +38,7 @@ PM2.5 are atmospheric aerosols with a maximum diameter of 2.5 micrometers. This 
 
 WHO has set the standard of the average daily concentration of PM2.5 suspended particulate matter at 25 micrograms per cubic meter. For PM10 limit value is 50 micrograms per cubic meter.
 
-You can find more details across the internet, but here's a [link to CDC](https://www.cdc.gov/air/particulate_matter.html).
+I'm sure you can find more details across the internet, and here's one [link to CDC](https://www.cdc.gov/air/particulate_matter.html).
 
 ## Infra-as-code FTW!
 
@@ -77,7 +77,7 @@ $ mkdir demo
 $ python3 -m venv demo
 $ source demo/bin/activate
 $ pip3 install azure-iot-hub azure-iot-device azure-core pyserial
-@ python3 ser_read_airq_measurements.py
+$ python3 ser_read_airq_measurements.py
 ```
 Let's have a look of the ```ser_read_airq_measurement.py``` file. Please python-developers no laughing here. I'm not a developer by any means.
 
