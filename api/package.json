@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "RuuviTag data from CosmosDB",
     "dependencies": {
-      "@azure/cosmos": "^3.9.2"
+      "@azure/cosmos": "^3.17.3"
     },
     "devDependencies": {}
   }
