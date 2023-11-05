@@ -1,16 +1,16 @@
 ---
 author: "Tommi Marjomaa"
-title: "Visualizing Ruuviag sensor data in Grafana Cloud"
+title: "Visualizing Ruuvitag sensor data in Grafana Cloud"
 linktitle: "Visualizing RuuviTag sensor data in Grafana Cloud"
-description: "In this blog post, I'm demonstrating how to send RuuviTag sensor data to Influxdb Cloud and visualize it in Grafana Cloud."
+description: "In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud."
 date: "2023-11-05T15:00:00+03:00"
 tags: ["ruuvitag", "iot", "raspberrypi", "influxdb", "grafana", "python"]
 draft: false
 ---
 
-![The solution consists of some RuuviTags, a Raspberry Pi, Influxdb Cloud and Grafana Cloud](/images/ruuvitag-grafana.png)
+![The solution consists of some RuuviTags, a Raspberry Pi, InfluxDB Cloud and Grafana Cloud](/images/ruuvitag-grafana.png)
 
-In this blog post, I'm demonstrating how to send Ruuvitag sensor data to Influxdb Cloud and visualize it in Grafana Cloud. The solution is really simple. I have few Ruuvitag sensors around the house plus one outside. I have a Raspberry Pi W Zero that can communicate with the Ruuvitags using Bluetooth. Measurement data is sent to Influxdb Cloud using a simple python script. Finally I'm using Grafana Cloud for visualization.
+In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud. The solution is really simple. I have few RuuviTag sensors around the house plus one outside. I have a Raspberry Pi W Zero that can communicate with the RuuviTags using Bluetooth. Measurement data is sent to InfluxDB Cloud using a simple python script. Finally I'm using Grafana Cloud for visualization.
 
 ## Reading RuuviTag measurement data
 
@@ -49,7 +49,7 @@ The actual payload that gets printed out to console looks like the following.
 
 Let's see how to get measurement data up in to cloud.
 
-## Influxdb Cloud
+## InfluxDB Cloud
 
 InfluxDB Cloud is purpose-built platform for collecting, storing, processing and visualizing time series data. Common [time series data use cases](https://www.influxdata.com/what-is-time-series-data/) include monitoring APIs and server performance metrics, and working with industrial sensor data.
 
@@ -117,11 +117,10 @@ def send_to_influxdb(found_data):
         write_api = clientInfluxdb.write_api(write_options=SYNCHRONOUS)
         write_api.write(bucket=bucket, org=org, record=point)
         write_api.close()
-        print( "Sending message to Influx Cloud: {}".format(point) )
+        print( "Sending message to InfluxDB Cloud: {}".format(point) )
     except Exception as e:
         print(e)
         write_api.close()
-#        clientInfluxdb = influxdb_client_init()
 
 if __name__ == '__main__':
     print ( "Press Ctrl-C to exit" )
@@ -136,19 +135,19 @@ Once the script is executed, measurement datapoints start beeing sent to InfluxD
 $ python3 write-ruuvi-data-to-influxdb.py
 Press Ctrl-C to exit
 Init
-Sending message to Influx Cloud: ruuvi_measurements,mac=C3:83:AF:C5:29:9B accelerationX=632i,accelerationY=848i,accelerationZ=12i,batteryVoltage=2700i,humidity=42.42,measurementSequenceNumber=36381i,movementCounter=146i,pressure=1008.59,temperature=5.92,txPower=4i
-Sending message to Influx Cloud: ruuvi_measurements,mac=D1:7C:E9:9C:D4:4E accelerationX=-260i,accelerationY=-976i,accelerationZ=44i,batteryVoltage=2721i,humidity=57.44,measurementSequenceNumber=15827i,movementCounter=67i,pressure=1008.34,temperature=18.84,txPower=4i
-Sending message to Influx Cloud: ruuvi_measurements,mac=F3:9A:99:EA:C7:C2 accelerationX=-960i,accelerationY=316i,accelerationZ=28i,batteryVoltage=2893i,humidity=91.03,measurementSequenceNumber=14278i,movementCounter=52i,pressure=1009.38,temperature=4.18,txPower=4i
+Sending message to InfluxDB Cloud: ruuvi_measurements,mac=C3:83:AF:C5:29:9B accelerationX=632i,accelerationY=848i,accelerationZ=12i,batteryVoltage=2700i,humidity=42.42,measurementSequenceNumber=36381i,movementCounter=146i,pressure=1008.59,temperature=5.92,txPower=4i
+Sending message to InfluxDB Cloud: ruuvi_measurements,mac=D1:7C:E9:9C:D4:4E accelerationX=-260i,accelerationY=-976i,accelerationZ=44i,batteryVoltage=2721i,humidity=57.44,measurementSequenceNumber=15827i,movementCounter=67i,pressure=1008.34,temperature=18.84,txPower=4i
+Sending message to InfluxDB Cloud: ruuvi_measurements,mac=F3:9A:99:EA:C7:C2 accelerationX=-960i,accelerationY=316i,accelerationZ=28i,batteryVoltage=2893i,humidity=91.03,measurementSequenceNumber=14278i,movementCounter=52i,pressure=1009.38,temperature=4.18,txPower=4i
 ...
 ```
 
 While I could visualize measurement data from RuuviTags using InfluxDB Cloud's Dashboards, this time around I'll be using Grafana Cloud for visualization.
 
-## Grafana Clod
+## Grafana Cloud
 
 In case you're not familiar with [Grafana Cloud](https://grafana.com/products/cloud/). It's an open and composable platform that enables observability without the overhead of building, installing, maintaining, and scaling the observability stack.
 
-First thing to do is to add the Influx Cloud instance as a data source (**Home - Connections - Data sources - Add new data source - InfluxDB**). Remember those InfluxDB-related variables for the script? Those are needed here too. First change the *Query language* to *Flux* and flip *Basic Auth* switch *Off*. *URL* equals "\<host-url>", *Organization* equals "\<organization>", *Default bucket* equals "\<name-of-the-bucket>". Token is also needed for the connection. This time I'm using a token with *read* permissions to the bucket. As a summary, these values needs configuring.
+First thing to do is to add the InfluxDB Cloud instance as a data source (**Home - Connections - Data sources - Add new data source - InfluxDB**). Remember those InfluxDB-related variables for the script? Those are needed here too. First change the *Query language* to *Flux* and flip *Basic Auth* switch *Off*. *URL* equals "\<host-url>", *Organization* equals "\<organization>", *Default bucket* equals "\<name-of-the-bucket>". Token is also needed for the connection. This time I'm using a token with *read* permissions to the bucket. As a summary, these values needs configuring.
 
 ![Configuring the InfluxDB Cloud data source](/images/influxdb-datasource.png)
 
@@ -156,7 +155,7 @@ By clicking **Save & test** we should get an confirmation message stating that t
 
 Then it's time to start adding visualization.
 
-We can quickly test that we can read the data of a single Ruuvitag (which has a mac address of "C3:83:AF:C5:29:9B"), by using a simple query such as.
+We can quickly test that we can read the data of a single RuuviTag (which has a mac address of "C3:83:AF:C5:29:9B"), by using a simple query such as.
 
 ```
 from(bucket: "ruuvi")
@@ -166,11 +165,11 @@ from(bucket: "ruuvi")
   |> filter(fn: (r) => r["_field"] == "temperature" or r["_field"] == "humidity")
 ```
 
-The panel changes to a line visualization with temperature and humidity of the Ruuvitag sensor.
+The panel changes to a line visualization with temperature and humidity of the chosen RuuviTag sensor.
 
 ![Queried data is shown in the panel as a line visualization](/images/influxdb-firstquery.png)
 
-Lets take another example. This time I'll only query the values of temperature data of the same Ruuvitag.
+Lets take another example. This time I'll only query the values of temperature data of the same RuuviTag.
 
 ```
 from(bucket: "ruuvi")
@@ -230,4 +229,4 @@ def _get_ruuvitag_data(
 
 ## Summary
 
-In this blog I demonstrated how to read Ruuvitag measurement data over Bluetooth and send it to InfluxDB Cloud, which can be easily connected to a Grafana Cloud for visualizing the measurement data.
+In this blog I demonstrated how to read RuuviTag measurement data over Bluetooth and send it to InfluxDB Cloud, which in turn can be easily connected as a data source to Grafana Cloud for visualizing the measurement data.
