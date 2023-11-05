@@ -4,7 +4,7 @@ title: "Visualizing Ruuviag sensor data in Grafana Cloud"
 linktitle: "Visualizing RuuviTag sensor data in Grafana Cloud"
 description: "In this blog post, I'm demonstrating how to send RuuviTag sensor data to Influxdb Cloud and visualize it in Grafana Cloud."
 date: "2023-11-05T15:00:00+03:00"
-tags: ["ruuvitag", "raspberrypi", "influxdb", "grafana", "python"]
+tags: ["ruuvitag", "iot", "raspberrypi", "influxdb", "grafana", "python"]
 draft: false
 ---
 
@@ -188,7 +188,7 @@ Feel free to ecplore the possibilities!
 
 ## One last tip
 
-As there are limitations on the InfluxDB Cloud Free Plan ([read more about the [plans](https://www.influxdata.com/influxdb-cloud-pricing/)), and because I really don't need to send the measurement data as a constant data stream, I have set a 30 seconds sleep in method *_get_ruuvitag_data* inside the file */lib/python3.7/site-packages/ruuvitag_sensor/ruuvi.py*. (The last line of the following snippet)
+As there are limitations on the InfluxDB Cloud Free Plan (read more about the [plans](https://www.influxdata.com/influxdb-cloud-pricing/)), and because I really don't need to send the measurement data as a constant data stream, I have set a 30 seconds sleep in method *_get_ruuvitag_data* inside the file */lib/python3.7/site-packages/ruuvitag_sensor/ruuvi.py*. (The last line of the following snippet)
 
 ```python
 ...
