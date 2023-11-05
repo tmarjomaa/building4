@@ -10,7 +10,7 @@ draft: false
 
 ![The solution consists of some RuuviTags, a Raspberry Pi, InfluxDB Cloud and Grafana Cloud](/images/ruuvitag-grafana.png)
 
-In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud. The solution is really simple. I have few RuuviTag sensors around the house plus one outside. I have a Raspberry Pi W Zero that can communicate with the RuuviTags using Bluetooth. Measurement data is sent to InfluxDB Cloud using a simple python script. Finally I'm using Grafana Cloud for visualization. And yes, I know there is a RuuviTag Gateway for remote monitorin for sensors, but where's the fun in using ready made solution?
+In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud. The solution is really simple. I have few RuuviTag sensors around the house plus one outside. I have a Raspberry Pi W Zero that can communicate with the RuuviTags using Bluetooth. Measurement data is sent to InfluxDB Cloud using a simple python script. Finally I'm using Grafana Cloud for visualization. And yes, I know there is a RuuviTag Gateway for remotely monitoring the sensors, but where's the fun in using ready made solution?
 
 ## Reading RuuviTag measurement data
 
