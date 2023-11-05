@@ -184,7 +184,10 @@ There are tons of options for visulizing the measurement data. For example we ca
 
 ![Visualizing the temperature data as a number, with the color set to change based on threshold values](/images/influxdb-temperaturestat.png)
 
-Feel free to ecplore the possibilities!
+Feel free to mix different visualizations and explore the various possibilities! 
+
+![Final dashboard with four panels](/images/grafana-dashboard.png)
+
 
 ## One last tip
 
@@ -225,6 +228,6 @@ def _get_ruuvitag_data(
 ...
 ```
 
-## Summary and what's next
+## Summary
 
 In this blog I demonstrated how to read Ruuvitag measurement data over Bluetooth and send it to InfluxDB Cloud, which can be easily connected to a Grafana Cloud for visualizing the measurement data.
