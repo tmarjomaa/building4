@@ -1,6 +1,6 @@
 ---
 author: "Tommi Marjomaa"
-title: "Visualizing Ruuvitag sensor data in Grafana Cloud"
+title: "Visualizing RuuviTag sensor data in Grafana Cloud"
 linktitle: "Visualizing RuuviTag sensor data in Grafana Cloud"
 description: "In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud."
 date: "2023-11-05T15:00:00+03:00"
@@ -10,7 +10,7 @@ draft: false
 
 ![The solution consists of some RuuviTags, a Raspberry Pi, InfluxDB Cloud and Grafana Cloud](/images/ruuvitag-grafana.png)
 
-In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud. The solution is really simple. I have few RuuviTag sensors around the house plus one outside. I have a Raspberry Pi W Zero that can communicate with the RuuviTags using Bluetooth. Measurement data is sent to InfluxDB Cloud using a simple python script. Finally I'm using Grafana Cloud for visualization.
+In this blog post, I'm demonstrating how to send RuuviTag sensor data to InfluxDB Cloud and visualize it in Grafana Cloud. The solution is really simple. I have few RuuviTag sensors around the house plus one outside. I have a Raspberry Pi W Zero that can communicate with the RuuviTags using Bluetooth. Measurement data is sent to InfluxDB Cloud using a simple python script. Finally I'm using Grafana Cloud for visualization. And yes, I know there is a RuuviTag Gateway for remote monitorin for sensors, but where's the fun in using ready made solution?
 
 ## Reading RuuviTag measurement data
 
@@ -183,7 +183,7 @@ There are tons of options for visulizing the measurement data. For example we ca
 
 ![Visualizing the temperature data as a number, with the color set to change based on threshold values](/images/influxdb-temperaturestat.png)
 
-Feel free to mix different visualizations and explore the various possibilities! 
+Feel free to mix different visualizations and explore the various possibilities! My dashboard is a dull mix of both demonstrated visulizations.
 
 ![Final dashboard with four panels](/images/grafana-dashboard.png)
 
