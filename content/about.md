@@ -2,14 +2,14 @@
 title: "About"
 description: "Building 4 is a personal blog for posts mostly around Azure, DevOps, Kubernetes, Powershell, security and whatever I feel like is worth writing."
 date: "2020-04-15"
-lastmod: "2021-12-28"
+lastmod: "2024-07-02"
 menu: "main"
 meta: "false"
 weight: "20"
 ---
 Subject: Tommi Marjomaa  
 Location: Vantaa, Finland  
-Work: One of the #Makers of a Sustainable Future at [Knowit](https://knowit.fi)
+Work: One of the Meltlakers at [Maltlake](https://www.meltlake.com)
 
 _"The knight who doesn't believe in Holy Grail, will never find it."_
 
@@ -25,4 +25,4 @@ Don't be afraid to make mistakes. Learn from your mistakes and move on.
 
 While still turning myself from IT Pro being more DevOps-minded, I think it's time to start writing this blog. It's been in the making far too long already. Welcome to the ride with me. Let's see what this blog will turn into and where it takes us.
 
-Feel free to contact me through [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [twitter](https://twitter.com/tommimarjomaa).
+Feel free to contact me through [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [X](https://x.com/tommimarjomaa).
