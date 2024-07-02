@@ -9,7 +9,7 @@ weight: "20"
 ---
 Subject: Tommi Marjomaa  
 Location: Vantaa, Finland  
-Work: One of the Meltlakers at [Maltlake](https://www.meltlake.com)
+Work: One of the Meltlakers at [Meltlake](https://www.meltlake.com)
 
 _"The knight who doesn't believe in Holy Grail, will never find it."_
 
