@@ -108,7 +108,7 @@ If we head into Azure Portal, we should find the new Arc connected cluster.
 
 ![Azure portal overview of the Azure Arc connected cluster](/images/supermario-cluster.png)
 
-To be able to view the Kubernetes resources of the cluster in Azure portal, a bearer token is needed. We can either user *kubectl* ([link](https://learn.microsoft.com/en-gb/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli%2Cagent-version#service-account-token-authentication-option)) or get one simply using a single Powershell command (```Get-AksEdgeManagedServiceToken```). Just copy-paste the token, and we're good to go.
+To be able to view the Kubernetes resources of the cluster in Azure portal, a bearer token is needed. We can either use *kubectl* ([link for more info](https://learn.microsoft.com/en-gb/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli%2Cagent-version#service-account-token-authentication-option)) or get one simply by using a single Powershell command (```Get-AksEdgeManagedServiceToken```). Just copy-paste the token, and we're good to go.
 
 ![A bearer token is needed for accessing the cluster resources in Azure portal](/images/supermario-cluster-bearer-token.png)
 
