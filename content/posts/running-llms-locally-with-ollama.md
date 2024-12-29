@@ -1,20 +1,28 @@
 ---
 author: "Tommi Marjomaa"
-title: "Running LLMs locally with ollama"
-linktitle: "Running LLMs locally with ollama"
-description: "If you've been thinking about experimenting with large language models locally, but haven't yet started, you're in the right place. In this blog psost I'll show how you can run LLMs locally using Ollama."
+title: "Running LLMs locally with Ollama"
+linktitle: "Running LLMs locally with Ollama"
+description: "If you've been thinking about experimenting with large language models locally, but haven't yet started, you're in the right place. In this blog post t I'll show how you a straightforward way to run LLMs locally using Ollama."
 date: "2024-12-29T12:00:00+03:00"
 tags: ["genai", "llm", "wsl", "ollama"]
 draft: false
 ---
 
-![A llama using a workstation to run large language models locally!](/images/llama.png)
+![A llama using a computer to run large language models locally!](/images/llama.png)
 
-I'm sure you have interacted with LLMs through online services like OpenAI's ChatGPT. You might even have experience from multiple services and various models. And while you have been utlizing those services, you might have been wondering if you could run large language models on your laptop. That's something I can help you with. In this blog post I'll show you an easy way to run LLMs using Ollama.
+I'm sure you already have experience interacting with LLMs through online services like OpenAI's ChatGPT.You might even have tried multiple services and various models. And while you have been utlizing those services, you might have been wondering: *Can I run large language models on my own computer?* The good news is — yes, you can, and I’m here to help. In this blog post I'll show you a straightforward way to run LLMs locally using Ollama.
 
 ## Why Run LLMs Locally?
 
-Well, why not? Running models locally ensures **privacy** as you have complete control over your data and you can be confident that sensitive never leaves your environment, minimizing exposure to potential breaches. You'll also have greater control over **tailoring** and fine-tuning the model's behavior to adapt your specific needs without the constraints of pre-packaged cloud solutions. For long-term, intensive use cases, local deployments can be more **cost-effective** than recurring cloud service fees. Local execution can reduce **latency**, providing faster response times compared to cloud-based solutions. Or maybe you have an unreliable network connection and still need to develop your AI-powered app offline. And if nothing else, it's always fun to **learn and experiment** with something new.
+Well, why not? Running models locally offers several benefits:
+ 
+ * **Privacy**: You have complete control over your data, ensuring that sensitive never leaves your environment, minimizing exposure to potential breaches. 
+ * **Customization**: You'll have greater control over tailoring and fine-tuning the model's behavior to adapt your specific needs - without the constraints of pre-packaged cloud solutions. 
+ * **Cost-effectiveness**: For long-term, intensive use cases, local deployments can be more cost-effective than recurring cloud service fees. 
+ * **Reduced latency**: Runnin models locally can provide faster response times compared to cloud-based solutions. 
+ * **Offline capability**: If you have an unreliable network connection, local execution allows you to continue developing your AI-powered apps offline. 
+ 
+ And if nothing else, it's always fun to **learn and experiment** with something new.
 
 ## Setting up Ollama
 
@@ -79,7 +87,9 @@ Set system message.
 In the realm of artificial intelligence, where language itself becomes the brushstrokes of creation, we find a symphony of code and algorithms yearning to be unleashed. For too long, the allure of these powerful language models has felt like a whispered dream, a celestial dance confined to distant servers. But now, thanks to Ollama's ingenious design, we stand poised to translate those aspirations into tangible reality.  This guide acts as a conduit, illuminating the path towards unlocking the full potential of AI - right on your very own desktop.
 ```
 
-You can use ```/bye``` to exit the chat.
+The tone definitely shifted, but I guess I would never use it like that in any of my posts, as it doesn't quite fit my mouth :D. 
+
+To exit a chat, you can simply type ```/bye```.
 
 If you just want the ouput from a model without chatting, you can just send your request to the model together with the run command.
 
@@ -89,7 +99,7 @@ $ ollama run gemma2:2b "What is cloud computing?"
 Imagine a big, shared network of computers (servers) that are constantly running and storing data for anyone to use – like an online toolbox. That's essentially what cloud computing is!
 ```
 
-Depending on the model used, we can even add images to the conversation and ask questions about it. Let's see what can we get out of the header image.
+Depending on the model used, we can even add images into the conversation and ask questions about them. Let's see which insights can we get out of the header image in this post.
 
 ```bash
 >>> "Which items are on the desk in this picture?" "./llama.png"
@@ -131,7 +141,7 @@ Once Open WebUI has been installed, you can access it in your browser at: http:/
 
 You can use ```ollama list``` to list pulled models, ```ollama ps``` to list running models, ```ollama stop``` to stop a running model,  ```ollama show``` to get information about a model, and ```ollama rm <model>``` to remove a model. 
 
-To interact with the ollama service, you can use systemctl.
+To interact with the ollama service itself, you can use familiar systemctl commands.
 
 ```bash
 sudo systemctl start ollama
