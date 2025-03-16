@@ -1,9 +1,9 @@
 module.exports = async function (context, req) {
     const CosmosClient = require("@azure/cosmos").CosmosClient;
     const config = {
-        databaseId: "outDatabase",
-        containerId: "MyCollection",
-        connectiongString: process.env["cosmos_ruuvi_test_DOCUMENTDB"]
+        databaseId: "measurementdb",
+        containerId: "measurementdata",
+        connectiongString: process.env["COSMOSDB_CONNECTION_STRING"]
       };   
 
     const { databaseId, containerId, connectiongString } = config;
