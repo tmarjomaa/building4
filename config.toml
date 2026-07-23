@@ -9,7 +9,10 @@ summaryLength = 30
 enableEmoji = true
 pygmentsCodeFences = true
 enableRobotsTXT = true
-#disqusShortname = ""
+
+[services]
+  [services.disqus]
+    shortname = ''
 
 [pagination]
   disableAliases = false
