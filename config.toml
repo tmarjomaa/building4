@@ -9,6 +9,7 @@ summaryLength = 30
 enableEmoji = true
 pygmentsCodeFences = true
 enableRobotsTXT = true
+#disqusShortname = ""
 
 [pagination]
   disableAliases = false
