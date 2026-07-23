@@ -8,8 +8,12 @@ meta = "false"
 summaryLength = 30
 enableEmoji = true
 pygmentsCodeFences = true
-paginate = 10
 enableRobotsTXT = true
+
+[pagination]
+  disableAliases = false
+  pagerSize = 10
+  path = 'page'
 
 [params]
   tagline = "Beam me up, Scotty."
