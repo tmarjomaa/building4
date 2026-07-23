@@ -11,7 +11,7 @@
         </li>
         <li class="nobullets-social-share-li">
 			{{ $twitter_href := printf "https://twitter.com/share?url=%s&text=%s" $url $title }}
-			{{ with .Site.Social.twitter }}
+			{{ with .Site.Params.Author.twitter }}
 			{{ $twitter_href = printf "%s&via=%s" $twitter_href . }}
 			{{ end }}
             <a href="{{ $twitter_href }}" class="twitter no-underline" aria-label="share on Twitter">
