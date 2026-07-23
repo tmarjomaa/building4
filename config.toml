@@ -22,7 +22,7 @@ enableRobotsTXT = true
   favicon = true
   customCSS = ["css/building4css_v2.css"]
 
-[author]
+[params.author]
     name = "Tommi Marjomaa"
     linkedin = "tommimarjomaa"
     twitter = "tommimarjomaa"
