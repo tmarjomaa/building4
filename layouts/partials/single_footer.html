@@ -13,12 +13,4 @@
         </li>
     </ul>
 </section>
-  {{ if not .Params.disableComments }}
-    {{ if .Site.Params.UtterancesRepo }}
-        {{ partial "utterances" . }}
-    {{ end }}
-    {{ if .Site.Config.Services.Disqus.Shortname }}
-        {{ partial "disqus" . }}
-    {{ end }}
-  {{ end }}
 {{ end }}

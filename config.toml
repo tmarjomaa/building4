@@ -15,10 +15,6 @@ enableRobotsTXT = true
     noClasses = false
     style = "monokai"
 
-[services]
-  [services.disqus]
-    #shortname = false
-
 [pagination]
   disableAliases = false
   pagerSize = 10
