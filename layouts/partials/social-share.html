@@ -10,12 +10,12 @@
             </a>
         </li>
         <li class="nobullets-social-share-li">
-			{{ $twitter_href := printf "https://twitter.com/share?url=%s&text=%s" $url $title }}
+			{{ $twitter_href := printf "https://x.com/intent/tweet?url=%s&text=%s" $url $title }}
 			{{ with .Site.Params.Author.twitter }}
 			{{ $twitter_href = printf "%s&via=%s" $twitter_href . }}
 			{{ end }}
-            <a href="{{ $twitter_href }}" class="twitter no-underline" aria-label="share on Twitter">
-                <i class="fab fa-twitter fa-lg"></i>
+            <a href="{{ $twitter_href }}" class="twitter no-underline" aria-label="share on X">
+                <i class="fab fa-x-twitter fa-lg"></i>
             </a>
         </li>
         <li class="nobullets-social-share-li">
