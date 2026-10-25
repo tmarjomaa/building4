@@ -1,5 +1,5 @@
 ---
-author: "{{.Site.Author.name}}"
+author: "{{ site.Params.Author.name }}"
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 linktitle: "{{ replace .TranslationBaseName "-" " " | title }}"
 description: ""
@@ -8,4 +8,4 @@ tags: ["", ""]
 draft: true
 ---
 
-Want to know more or leave a comment? Reach out to me on [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [Twitter](https://twitter.com/tommimarjomaa).
+Want to know more? Reach out to me on [LinkedIn](https://linkedin.com/in/tommimarjomaa) or [X](https://x.com/tommimarjomaa).
