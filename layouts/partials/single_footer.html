@@ -13,9 +13,4 @@
         </li>
     </ul>
 </section>
-  {{ if not .Params.disableComments }}
-    {{ if .Site.Params.UtterancesRepo }}
-        {{ partial "utterances" . }}
-    {{ end }}
-  {{ end }}
 {{ end }}
