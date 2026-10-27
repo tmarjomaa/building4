@@ -5,7 +5,7 @@ linktitle: "Claude Code to the Rescue! Helping Out the Lazy Admin"
 description: "My blog had been left alone for almost two years. I handed the repo to Claude Code, mostly stayed out of the way, and ended up with eight pull requests worth of fixes, from an EOL Node.js runtime to a malware domain and a CSP that was quietly breaking my code blocks."
 date: "2026-10-27T12:00:00+02:00"
 tags: ["azure", "staticwebapps", "hugo", "github", "genai", "claudecode"]
-draft: true
+draft: false
 ---
 
 <!-- TODO screenshot: hero image for the post -> /images/claude-code-to-the-rescue.png -->
